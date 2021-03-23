@@ -1,0 +1,155 @@
+/*
+This is a good layout for a mobile-first CSS template.
+Following this flow will minimize the number of styles you need to write and will ensure you are thinking, designing and developing mobile-first.
+Most of your styles get written like standard CSS, but for your mobile presentation. Generally speaking, a good mobile presention will stretch out nicely for larger screens.
+
+Sometimes, when we stretch out to larger screens, we need to make minor tweaks for the larger devices -- you can make these tweaks in the tablet media query, or if the issue exists on desktop only, the desktop media query.
+You will find this is far easier than the opposite task of using CSS to cram your desktop experience into a mobile device.
+*/
+/*********************************************************************
+ LOADS IN A NICE RESET TO ENSURE ALL BROWSERS HAVE THE SAME BASE STYLES
+*********************************************************************/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
+
+/*********************************************************************
+  YOUR MOBILE/BASE STYLES GO HERE
+*********************************************************************/
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    /* Sets default font-size to 16px, ensuring 1em = 16px; */
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+header {
+    margin-bottom: 3px;
+}
+
+h1 {
+    color: rgba(255, 15, 15, 1);
+}
+
+.byline {
+    font-size: 18px;
+}
+
+header p {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.container.image {
+    max-width: 800px;
+    padding: 0;
+}
+
+/** BASE CLASSES */
+.annotate {
+    position: relative;
+}
+
+.annotate .dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #FFF;
+    color: #FFF;
+}
+
+.annotate .dot .inner {
+    position: absolute;
+    opacity: 0;
+    padding: 25px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.annotate .dot .close {
+    position: absolute;
+    color: #FFF;
+    top: 10px;
+    right: 10px;
+    font-size: 2em;
+    text-decoration: none;
+    opacity: 0;
+}
+
+.annotate .dot.pink {
+    background-color: rgba(221, 12, 221, 0.85);
+}
+
+.annotate .dot.blue {
+    background-color: rgba(12, 12, 221, 0.85);
+}
+
+.annotate .dot.green {
+    background-color: rgba(9, 107, 9, 0.85);
+}
+
+.annotate .dot.active {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 0;
+    border: 0;
+    z-index: 2;
+}
+
+.annotate .dot.active .close,
+.annotate .dot.active .inner {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#amygdala:not(.active) {
+    bottom: 30%;
+    right: 31%;
+}
+
+#hippocampus:not(.active) {
+    bottom: 31%;
+    right: 27%;
+}
+
+#thalamus:not(.active) {
+    bottom: 43%;
+    right: 25%;
+}
+
+/*********************************************************************
+  YOUR TABLET/DESKTOP STYLES GO HERE
+*********************************************************************/
+@media(min-width: 681px) {
+
+    /* Any adjustments for tablets and larger go here.
+    Note these styles will be applied to anything 681px or larger -- so tablet AND desktop */
+    .annotate .dot {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/*********************************************************************
+  YOUR DESKTOP-ONLY STYLES GO HERE
+*********************************************************************/
+@media(min-width: 729px) {
+    /* Any adjustments for desktop and larger go here.
+    Note these styles will be applied to anything 729px or larger -- so desktop */
+}
